@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  tesseractv1:
+    build: ./
+    volumes:
+      - ./tessdata_fast:/usr/share/tessdata
+      - ./app:/app/
+      - ./images:/images
