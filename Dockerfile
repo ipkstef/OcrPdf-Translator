@@ -12,6 +12,8 @@ RUN apk add curl
 
 COPY ./app/requirements.txt /requirements.txt
 
+RUN apk add --update py3-pip
+
 RUN pip install -r /requirements.txt
 
 
