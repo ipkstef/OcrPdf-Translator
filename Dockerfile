@@ -10,7 +10,10 @@ RUN apk add git
 
 RUN apk add curl
 
+COPY ./app/requirements.txt /requirements.txt
+
+RUN pip install -r /requirements.txt
 
 
-ENTRYPOINT ["tesseract"]
+ENTRYPOINT ["python /app/app.py"]
 
