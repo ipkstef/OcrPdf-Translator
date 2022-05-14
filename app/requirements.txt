@@ -1,4 +1,4 @@
 pytesseract
-translators
-pillow
-opencv-python
+# translators
+# pillow
+# opencv-python

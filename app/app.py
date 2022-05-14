@@ -1,6 +1,6 @@
 import pytesseract
-import cv2
-import PIL.Image
+# import cv2
+# import PIL.Image
 
 
 my_config = r'--oem 3 --psm 6'
