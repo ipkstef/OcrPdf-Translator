@@ -11,7 +11,7 @@ Pdf = pdf.InputPdf()
 
 def main():
     
-    Pdf.load(pdf_file='/app/images/excerpts.pdf', output_folder=tempfile.gettempdir())
+    Pdf.load(pdf_file='/app/images/excerpts.pdf')
     print(Pdf.get_page_count())
     print(Pdf.get_text(config=my_config))
 

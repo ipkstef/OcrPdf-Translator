@@ -34,7 +34,7 @@ class InputPdf():
     def get_text(self, config):
         text = []
         for page in self.pages:
-            text.append(pytesseract.image_to_string(PIL.Image.open(page), config=config))
+            text.append(pytesseract.image_to_string(page, config=config))
             # text.append(pytesseract.image_to_string(page, config=config))
         return text
 
