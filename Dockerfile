@@ -7,7 +7,10 @@ RUN  apt upgrade -y
 RUN  apt install -y  tesseract-ocr \
     git \
     curl \
-    python3-pip 
+    python3-pip \
+    ffmpeg\
+    libsm6 \
+    libxext6 
 
 RUN pip install --upgrade setuptools pip
 
