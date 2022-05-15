@@ -21,7 +21,7 @@ class InputPdf():
 
     def load(self, pdf_file, output_folder=None):
         self.pdf = pdf_file
-        images = convert_from_bytes(open(pdf_file, 'rb', output_folder).read())
+        images = convert_from_bytes(open(pdf_file, 'rb').read())
         for image in images:
             self.pages.append(image)
     
@@ -34,7 +34,7 @@ class InputPdf():
     def get_text(self, config):
         text = []
         for page in self.pages:
-            text.append(pytesseract.image_to_string(PIL.Image.read(page), config=config))
+            text.append(pytesseract.image_to_string(PIL.Image.open(page), config=config))
             # text.append(pytesseract.image_to_string(page, config=config))
         return text
 
