@@ -18,8 +18,8 @@ images = convert_from_bytes(open('/app/images/excerpts.pdf', 'rb').read())
 
 for page in images:
     count = 0
-    Image.Image.save(f'/app/images/{page}{count}.png', 'PNG')
-    image = cv2.imread(f'/app/images/{page}{count}.png')
+    Image.Image.save(f'/app/images/test{count}.png', 'PNG')
+    image = cv2.imread(f'/app/images/test{count}.png')
     text = pytesseract.image_to_string(image, config=my_config)
     print(text)
     print('\n\n')
