@@ -10,7 +10,8 @@ RUN  apt install -y  tesseract-ocr \
     python3-pip \
     ffmpeg\
     libsm6 \
-    libxext6 
+    libxext6 \
+    poppler-utils
 
 RUN pip install --upgrade setuptools pip
 
