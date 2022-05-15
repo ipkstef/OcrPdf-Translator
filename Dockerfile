@@ -7,7 +7,7 @@ RUN  apt upgrade -y
 RUN  apt install -y  tesseract-ocr \
     git \
     curl \
-    py3-pip
+    python3-pip 
 
 RUN pip install --upgrade setuptools pip
 
