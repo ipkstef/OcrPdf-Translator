@@ -7,3 +7,4 @@ services:
       - ./tessdata_fast:/usr/share/tessdata
       - ./app:/app/
       - ./images:/images
+    entrypoint: python /app/app.py
