@@ -1,4 +1,4 @@
-FROM alpine:3.14
+FROM python:3.10.4-alpine3.15
 
 COPY ./app/requirements.txt /requirements.txt
 
@@ -8,7 +8,7 @@ RUN apk add tesseract-ocr \
     git \
     curl \
     py3-pip
-    
+
 RUN pip install --upgrade setuptools pip
 
 RUN pip install opencv-python
