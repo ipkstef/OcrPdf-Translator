@@ -2,9 +2,9 @@ FROM python:3.8
 
 COPY ./app/requirements.txt /requirements.txt
 
-RUN sudo apt update -y
-RUN sudo apt upgrade -y 
-RUN sudo apt install -y  tesseract-ocr \
+RUN  apt update -y
+RUN  apt upgrade -y 
+RUN  apt install -y  tesseract-ocr \
     git \
     curl \
     py3-pip
