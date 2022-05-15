@@ -9,11 +9,11 @@ RUN apk update\
  curl \
  py3-pip 
 
-RUN pip3 install --upgrade setuptools pip
- 
-RUN PIP3 install opencv-python
+RUN pip install --upgrade setuptools pip
 
-RUN pip3 install -r /requirements.txt
+RUN pip install opencv-python
+
+RUN pip install -r /requirements.txt
 
 
 ENTRYPOINT ["python /app/app.py"]
