@@ -1,5 +1,5 @@
 import pytesseract
-import translaters as ts 
+import translators as ts
 import cv2
 import PIL.Image
 

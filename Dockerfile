@@ -11,7 +11,6 @@ RUN  apt install -y  tesseract-ocr \
 
 RUN pip install --upgrade setuptools pip
 
+RUN pip install translators
+
 RUN pip install -r /requirements.txt
-
-
-
