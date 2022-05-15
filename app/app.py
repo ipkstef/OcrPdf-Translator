@@ -17,11 +17,13 @@ my_config = r'--oem 3 --psm 6'
 images = convert_from_bytes(open('/app/images/recipe.pdf', 'rb').read())
 
 for page in images:
-    page.save('/app/images/page.png', 'PNG')
+    count = 0
+    page.save('/app/images/page{increment}.png', 'PNG').format(increment=str(count))
     image = cv2.imread('/app/images/page.png')
     text = pytesseract.image_to_string(image, config=my_config)
     print(text)
     print('\n\n')
+    count += 1
 
 # img_text = pytesseract.image_to_string(PIL.Image.open(images), config=my_config)
 
