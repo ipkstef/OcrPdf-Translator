@@ -2,3 +2,4 @@ pillow
 pytesseract
 translators
 opencv-python
+pdf2image
