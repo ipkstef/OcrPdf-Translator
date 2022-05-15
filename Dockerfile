@@ -1,17 +1,15 @@
-FROM python:3.10.4-alpine3.15
+FROM python:3.8
 
 COPY ./app/requirements.txt /requirements.txt
 
-RUN apk update
-RUN apk upgrade 
-RUN apk add tesseract-ocr \
+RUN sudo apt update -y
+RUN sudo apt upgrade -y 
+RUN sudo apt install -y  tesseract-ocr \
     git \
     curl \
     py3-pip
 
 RUN pip install --upgrade setuptools pip
-
-RUN pip install opencv-python
 
 RUN pip install -r /requirements.txt
 
