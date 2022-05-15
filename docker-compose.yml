@@ -7,4 +7,4 @@ services:
       - ./tessdata_fast:/usr/share/tessdata
       - ./app:/app/
 
-    entrypoint: python /app/app.py
+    entrypoint: python /app/main.py
