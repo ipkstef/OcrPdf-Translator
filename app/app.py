@@ -18,7 +18,7 @@ images = convert_from_bytes(open('/app/images/recipe.pdf', 'rb').read())
 
 for page in images:
     count = 0
-    page.save('/app/images/page{increment}.png', 'PNG').format(increment=str(count))
+    page.save(f'/app/images/page{count}.png', 'PNG')
     image = cv2.imread('/app/images/page.png')
     text = pytesseract.image_to_string(image, config=my_config)
     print(text)
