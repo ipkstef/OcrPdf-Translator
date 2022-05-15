@@ -14,5 +14,5 @@ RUN pip install --upgrade setuptools pip
 RUN pip install -r /requirements.txt
 
 
-ENTRYPOINT ["python /app/app.py"]
+# ENTRYPOINT ["python /app/app.py"]
 
