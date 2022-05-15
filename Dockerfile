@@ -4,13 +4,16 @@ COPY ./app/requirements.txt /requirements.txt
 
 RUN apk update\
  apk upgrade \
- apk add tesseract-ocr \
- apk add git \
- apk add curl \
- apk add --update py3-pip \
- pip3 install --upgrade setuptools pip \
- pip3 install opencv-python \
- pip install -r /requirements.txt
+ tesseract-ocr \
+ git \
+ curl \
+ py3-pip 
+
+RUN pip3 install --upgrade setuptools pip
+ 
+RUN PIP3 install opencv-python
+
+RUN pip3 install -r /requirements.txt
 
 
 ENTRYPOINT ["python /app/app.py"]
