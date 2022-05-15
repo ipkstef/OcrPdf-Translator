@@ -19,7 +19,7 @@ images = convert_from_bytes(open('/app/images/multitest.pdf', 'rb').read())
 for page in images:
     count = 0
     page.save(f'/app/images/multitest{count}.png', 'PNG')
-    image = cv2.imread('/app/images/page.png')
+    image = cv2.imread('/app/images/multitest{count}.png')
     text = pytesseract.image_to_string(image, config=my_config)
     print(text)
     print('\n\n')
