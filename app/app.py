@@ -2,15 +2,22 @@ import pytesseract
 import translators as ts
 import cv2
 import PIL.Image
+from utils import pdf
+import tempfile
+from pdf2image import convert_from_path, convert_from_bytes
 
+from pdf2image.exceptions import (
+    PDFInfoNotInstalledError,
+    PDFPageCountError,
+    PDFSyntaxError
+)
 
 my_config = r'--oem 3 --psm 6'
 
-import os 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+images = convert_from_bytes(open('/app/images/recipe.pdf', 'rb').read())
 
-print(dir_path)
+img_text = pytesseract.image_to_string(PIL.Image.open(images), config=my_config)
 
-img_text = pytesseract.image_to_string(PIL.Image.open('/app/images/itatest.jpg'), config=my_config)
 
-print(ts.google(img_text, to_language='en'))
+print(img_text)
+# print(ts.google(img_text, to_language='en'))
