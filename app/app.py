@@ -11,6 +11,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 print(dir_path)
 
-# img_text = pytesseract.image_to_string(PIL.Image.open('/app/images/engtest.png'), config=my_config)
+img_text = pytesseract.image_to_string(PIL.Image.open('/app/images/engtest.png'), config=my_config)
 
-# print(ts.google(img_text, to_language='es'))
+print(ts.google(img_text, to_language='es'))
