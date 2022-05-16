@@ -10,9 +10,7 @@ from pdf2image.exceptions import (
     PDFSyntaxError
 )
 
-import tempfile
-
-tempdir = tempfile.gettempdir()
+import os
 
 class InputPdf():
     def __init__(self):
@@ -21,36 +19,21 @@ class InputPdf():
 
     def load(self, pdf_file):
         self.pdf = pdf_file
-        self.pages = convert_from_path(pdf_file)
-    
-    def get_images(self):
-        images = []
-        for page in self.pages:
-            images.append(page)
-        return images
         
-    def get_text(self, config):
-        text = []
-        pages = self.pages
-        for page in pages:
-            text.append(pytesseract.image_to_string(page, config=config, lang='eng'))
-            # text.append(pytesseract.image_to_string(PIL.Image(open(self.get_images)), config=config)
-            # text.append(pytesseract.image_to_string(page, config=config))
-        return text
+    
+    def image_paths(self, path):
+        image_paths = []
+        for filename in os.listdir(path):
+            if filename.endswith(".png"):
+                image_paths.append(path + filename)
+        for image_path in image_paths:
+            with open(path + 'images.txt', 'a') as file:
+                file.write(image_path + '\n')
+        return image_paths
 
-    def get_page_count(self):
-        return len(self.pages)
 
-    def _save_images(self, path):
-        self.path = path
-        page_number = 1
-        try:
-            for page in self.pages:
-                page.save(path + '/' + f'{str(page)}' + f'{str(page_number)}.png')
-                page_number += 1
-        except Exception as e:
-            print(e)
-            return False
+
+
         
 
 

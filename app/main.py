@@ -1,34 +1,60 @@
-# import translators as ts
-from importlib.resources import path
-import cv2
+import translators as ts
 import pytesseract
 from utils import pdf
 import tempfile
 import os
+import glob
+import time
 from pdf2image import convert_from_path
 import PIL.Image
+
+from textwrap import wrap
+
 
 
 my_config = r'--oem 3 --psm 6'
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix='txt')
 Pdf = pdf.InputPdf()
-Pdf.load('/app/images/citizen.pdf')
+Pdf.load('/app/images/excerpts.pdf')
 def main():
     path = '/app/images/excerpts/'
+    files_png = glob.glob(path + '*.png')
+    files_txt = glob.glob(path + '*.txt')
+    for f in files_png:
+        os.remove(f)
+        time.sleep(0.5)
+    for f in files_txt:
+        os.remove(f)
+        time.sleep(0.5)
+
+
     convert_from_path(Pdf.pdf, output_folder=path, fmt='png')
 
-    image_paths = []
-    for filename in os.listdir(path):
-        if filename.endswith(".png"):
-            image_paths.append(path + filename)
+    path_list = Pdf.image_paths(path)
+
+    for path in path_list:
+        img = PIL.Image.open(path)
+        text = pytesseract.image_to_string(img, config=my_config)
+        bytes_text = bytes(text, 'utf-8')
+        newfile.write(bytes_text)
+    
+    newfile.close()
+    print(newfile.name)
+
+    
+
    
 
-    for image_path in image_paths:
-        with open(path + 'images.txt', 'a') as file:
-            file.write(image_path + '\n')
-    print(image_paths)
-    text = pytesseract.image_to_string(path + 'images.txt', config=my_config, lang='ita')
-    print(text)
+    
+    # text = pytesseract.image_to_string(path + 'images.txt', config=my_config, lang='ita')
+    # print(text)
+    # wrapped = wrap(text, width=1500)
+    # for line in wrapped:
+    #     print(ts.google(line, to_language='es'))
+
+    
+
+
 
     
         
