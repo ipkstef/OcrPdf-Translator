@@ -9,24 +9,26 @@ from pdf2image import convert_from_path
 import PIL.Image
 
 
-my_config = r'--oem 3 --psm 0'
-newfile = tempfile.NamedTemporaryFile(suffix='.txt', delete=False)
-
+my_config = r'--oem 3 --psm 6'
+newfile = tempfile.NamedTemporaryFile(delete=False, suffix='txt')
 Pdf = pdf.InputPdf()
-Pdf.load('/app/images/excerpts.pdf')
+Pdf.load('/app/images/citizen.pdf')
 def main():
     path = '/app/images/excerpts/'
-    Pdf._save_images(path)
-    print(Pdf.get_page_count())
-    image_path = []
+    convert_from_path(Pdf.pdf, output_folder=path, fmt='png')
+
+    image_paths = []
     for filename in os.listdir(path):
-        image_path.append(path + filename)
-    with open(path + 'images.txt', 'w') as f:
-        for image_path in image_path:
-            f.write(image_path + '\n')
-    
-    pytesseract.image_to_string(path + 'images.txt', config=my_config)
-        
+        if filename.endswith(".png"):
+            image_paths.append(path + filename)
+   
+
+    for image_path in image_paths:
+        with open(path + 'images.txt', 'a') as file:
+            file.write(image_path + '\n')
+    print(image_paths)
+    text = pytesseract.image_to_string(path + 'images.txt', config=my_config, lang='ita')
+    print(text)
 
     
         

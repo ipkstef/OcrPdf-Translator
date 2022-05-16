@@ -6,5 +6,6 @@ services:
     volumes:
       - ./tessdata_fast:/usr/share/tessdata
       - ./app:/app/
+      
 
     entrypoint: python /app/main.py
