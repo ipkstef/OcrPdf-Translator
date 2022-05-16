@@ -12,18 +12,16 @@ from pdf2image.exceptions import (
 
 import tempfile
 
-
+tempdir = tempfile.gettempdir()
 
 class InputPdf():
     def __init__(self):
         self.pdf = None
         self.pages = []
 
-    def load(self, pdf_file, output_folder=None):
+    def load(self, pdf_file):
         self.pdf = pdf_file
-        images = convert_from_bytes(open(pdf_file, 'rb').read())
-        for image in images:
-            self.pages.append(image)
+        self.pages = convert_from_path(pdf_file)
     
     def get_images(self):
         images = []
@@ -33,18 +31,27 @@ class InputPdf():
         
     def get_text(self, config):
         text = []
-        for page in self.pages:
-            text.append(pytesseract.image_to_string(page, config=config))
+        pages = self.pages
+        for page in pages:
+            text.append(pytesseract.image_to_string(page, config=config, lang='eng'))
+            # text.append(pytesseract.image_to_string(PIL.Image(open(self.get_images)), config=config)
             # text.append(pytesseract.image_to_string(page, config=config))
         return text
 
     def get_page_count(self):
         return len(self.pages)
 
-    def save_images(self, path):
+    def _save_images(self, path):
+        self.path = path
         page_number = 1
-        for page in self.pages:
-            page.save(path + '/' + f'{str(page)}' + f'{str(page_number)}.png')
-            page_number += 1
+        try:
+            for page in self.pages:
+                page.save(path + '/' + f'{str(page)}' + f'{str(page_number)}.png')
+                page_number += 1
+        except Exception as e:
+            print(e)
+            return False
+        
+
 
 
