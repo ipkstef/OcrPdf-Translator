@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: piotrpawlaczek/python-blacken@release/stable
       with:
-        path: "/app"
+        path: "../../app"
 
         
         
