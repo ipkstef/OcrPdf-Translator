@@ -7,5 +7,6 @@ services:
       - ./tessdata_fast:/usr/share/tessdata
       - ./app:/app/
       
-
     entrypoint: ['/app/entrypoint.sh']
+
+  

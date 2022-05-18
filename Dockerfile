@@ -16,3 +16,5 @@ RUN  apt install -y  tesseract-ocr \
 RUN pip install --upgrade setuptools pip
 
 RUN pip install -r /requirements.txt
+
+RUN chmod +x /app/entrypoint.py
