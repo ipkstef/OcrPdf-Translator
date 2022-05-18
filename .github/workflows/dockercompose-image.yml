@@ -3,7 +3,7 @@ name: Docker-Compose CI
 on:
   push:
     paths:
-      - './docker-compose.yml'
+      - 'docker-compose.yml'
 
 jobs:
 
