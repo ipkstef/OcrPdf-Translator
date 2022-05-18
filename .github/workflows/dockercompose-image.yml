@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'docker-compose.yml'
+      - '**.yml'
   pull_request:
     branches: [main]
 jobs:
