@@ -1,9 +1,10 @@
-from utils import pdf
 import tempfile
 from textwrap import wrap
+
 import pytesseract as pt
 from pdf2image import convert_from_path
 
+from utils import pdf
 
 user_input = input("Enter PDF file location: ")
 my_config = r"--oem 3 --psm 6"
