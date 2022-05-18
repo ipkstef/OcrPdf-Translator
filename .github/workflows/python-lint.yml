@@ -13,9 +13,11 @@ jobs:
 
     runs-on: ubuntu-latest 
     steps:
-    - uses: piotrpawlaczek/python-blacken@release/stable
-      with:
-        path: $GITHUB_WORKSPACE
+    - uses: actions/checkout@v3
+    - name: Install black
+      run: pip install black
+    - name: Python Lint
+      run: black $GITHUB_WORKSPACE 
 
         
         
