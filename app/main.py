@@ -1,4 +1,3 @@
-import translators as ts
 import pytesseract as pt
 from utils import pdf
 import tempfile
@@ -10,30 +9,29 @@ from textwrap import wrap
 my_config = r'--oem 3 --psm 6'
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix='txt')
 Pdf = pdf.InputPdf()
-Pdf.load('/app/images/excerpts.pdf')
+Pdf.load('/app/images/sample.pdf')
 
 
 def main():
     with tempfile.TemporaryDirectory() as path:
 
-        img_test = convert_from_path(Pdf.pdf, output_folder=path, fmt='png')
+        img_tmp = convert_from_path(Pdf.pdf, output_folder=path, fmt='png')
 
-        path_list = Pdf.image_paths(path)
 
-        for img in img_test:
+        for img in img_tmp:
             text = pt.image_to_string(img, config=my_config)
-            bytes_text = bytes(text, 'utf-8')
-            newfile.write(bytes_text)
-
-        # newfile.close()
-        newfile.seek(0)
-        print(newfile.read())
-
-       
-
-    # wrapped = wrap(text, width=1500)
-    # for line in wrapped:
-    #     print(ts.google(line, to_language='es'))
+            wrapped = wrap(text, width=15000)
+            for line in wrapped:
+                # print(line)
+                Pdf.pages.append(line)
+            
+        
+    
+    
+    print(f'Page Count: {Pdf.page_count()}')
+    Pdf.translate('am')
+    
+    newfile.close()
 
 
     # print(ts.google(img_text, to_language='en'))
