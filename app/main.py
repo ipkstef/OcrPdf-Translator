@@ -11,6 +11,7 @@ my_config = r"--oem 3 --psm 6"
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix="txt")
 Pdf = pdf.InputPdf()
 Pdf.load()
+#Pdf.load(user_input)
 
 
 def main():
