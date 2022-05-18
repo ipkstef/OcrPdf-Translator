@@ -31,7 +31,7 @@ def main():
     
     print(f'Page Count: {Pdf.page_count()}')
     print(f'pdf text: {Pdf.pages}')
-    # Pdf.translate('en')
+    Pdf.translate('en')
     
     newfile.close()
 
