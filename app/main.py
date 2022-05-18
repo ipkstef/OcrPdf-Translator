@@ -1,19 +1,30 @@
 import tempfile
 from textwrap import wrap
+from time import perf_counter
 
 import pytesseract as pt
 from pdf2image import convert_from_path
 
 from utils import pdf
 
-user_input = input("Enter PDF file location: ")
 my_config = r"--oem 3 --psm 6"
+
+
+# wait 10 seconds for user to enter input or set default
+start = perf_counter()
+while perf_counter() - start < 10:
+    user_input = input("Enter PDF file location: ")
+    if user_input:
+        Pdf.load(user_input)
+        break
+    else:
+        print("No input detected, defaulting to sample.pdf")
+        Pdf.load()
+        break
+    
+
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix="txt")
 Pdf = pdf.InputPdf()
-Pdf.load()
-# Pdf.load(user_input) # enable for production
-
-
 def main():
     with tempfile.TemporaryDirectory() as path:
 

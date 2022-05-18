@@ -8,4 +8,4 @@ services:
       - ./app:/app/
       
 
-    entrypoint: python /app/main.py
+    entrypoint: ['./entrypoint.sh']
