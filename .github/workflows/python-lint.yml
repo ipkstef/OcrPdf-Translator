@@ -13,10 +13,8 @@ jobs:
 
     runs-on: ubuntu-latest 
     steps:
-    - uses: actions/checkout@v2  
-    - name: Install black 
-    - run: pip install black 
-    - name: Test Code
-    - run: black /app
+    - uses: piotrpawlaczek/python-blacken@release/stable
+    
+
         
         
