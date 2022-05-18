@@ -1,2 +1,2 @@
-[![Docker-Compose CI](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/dockercompose-image.yml/badge.svg)](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/dockercompose-image.yml)
+[![Docker-Compose CI](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/Test-docker-compose.yml/badge.svg)](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/Test-docker-compose.yml)
 [![Python Lint Check](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/python-lint.yml/badge.svg)](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/python-lint.yml)
