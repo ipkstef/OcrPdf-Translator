@@ -3,8 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ main ]
-    paths: 
-      - ./Dockerfile
+    paths:
+      - ./docker-compose.yml
   pull_request:
     branches: [ main ]
 
@@ -16,6 +16,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-
+    - name: Docker Compose test
+      run: docker-compose run --rm tesseractv1
