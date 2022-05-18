@@ -1,8 +1,9 @@
-import pytesseract as pt
 from utils import pdf
 import tempfile
-from pdf2image import convert_from_path
 from textwrap import wrap
+import pytesseract as pt
+from pdf2image import convert_from_path
+
 
 
 
