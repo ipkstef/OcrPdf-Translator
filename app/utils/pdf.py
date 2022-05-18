@@ -1,3 +1,7 @@
+import translators as ts
+from textwrap import wrap
+
+
 class InputPdf():
     def __init__(self):
         self.pdf = None
@@ -5,11 +9,13 @@ class InputPdf():
 
     def load(self, pdf_file):
         self.pdf = pdf_file
-        
-    
-    def 
+         
+    def translate(self, to_language):
+        for page in self.pages:
+            print(ts.google(page, to_language=to_language))
 
-
+    def page_count(self):
+        return len(self.pages)
 
 
 
