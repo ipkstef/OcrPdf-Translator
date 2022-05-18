@@ -6,11 +6,11 @@ from pdf2image import convert_from_path
 
 
 
-
+user_input = input('Enter PDF file location: ')
 my_config = r'--oem 3 --psm 6'
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix='txt')
 Pdf = pdf.InputPdf()
-Pdf.load('/app/images/sample.pdf')
+Pdf.load(user_input)
 
 
 def main():
@@ -30,7 +30,8 @@ def main():
     
     
     print(f'Page Count: {Pdf.page_count()}')
-    Pdf.translate('am')
+    print(f'pdf text: {Pdf.pages}')
+    # Pdf.translate('en')
     
     newfile.close()
 
