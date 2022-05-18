@@ -14,11 +14,9 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v2  
-    - name: Python Linter
-      uses: sunnysid3up/python-linter@master
-      with:
-        source: "app"
-        mypy-options: "--ignore-missing-imports --show-error-codes"
-        pylint-options: "--rcfile=setup.cfg"
+    - name: Install black 
+    - run: pip install black 
+    - name: Test Code
+    - run: black /app
         
         
