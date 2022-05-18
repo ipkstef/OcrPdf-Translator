@@ -1,1 +1,1 @@
-# Hello
+[![Docker Image CI](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/docker-image.yml/badge.svg)](https://github.com/ipkstef/OcrPdf-Translator/actions/workflows/docker-image.yml)
