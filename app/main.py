@@ -25,14 +25,10 @@ def main():
             for line in wrapped:
                 # print(line)
                 Pdf.pages.append(line)
-            
-        
-    
-    
+
     print(f'Page Count: {Pdf.page_count()}')
     print(f'pdf text: {Pdf.pages}')
     Pdf.translate('en')
-    
     newfile.close()
 
 

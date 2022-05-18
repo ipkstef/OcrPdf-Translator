@@ -17,9 +17,3 @@ class InputPdf():
     def page_count(self):
         return len(self.pages)
 
-
-
-        
-
-
-
