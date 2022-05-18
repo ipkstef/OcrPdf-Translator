@@ -21,10 +21,12 @@ while perf_counter() - start < 10:
         print("No input detected, defaulting to sample.pdf")
         Pdf.load()
         break
-    
+
 
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix="txt")
 Pdf = pdf.InputPdf()
+
+
 def main():
     with tempfile.TemporaryDirectory() as path:
 

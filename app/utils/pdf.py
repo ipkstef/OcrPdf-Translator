@@ -1,6 +1,6 @@
 import translators as ts
 
-#some comments
+# some comments
 class InputPdf:
     def __init__(self):
         self.pdf = None
