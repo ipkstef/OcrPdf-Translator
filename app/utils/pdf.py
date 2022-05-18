@@ -1,5 +1,4 @@
 import translators as ts
-from textwrap import wrap
 
 #some comments
 class InputPdf:
