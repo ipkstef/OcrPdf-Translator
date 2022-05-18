@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
     - uses: piotrpawlaczek/python-blacken@release/stable
-    
+      with:
+        path: "/app"
 
         
         
