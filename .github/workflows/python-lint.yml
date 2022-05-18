@@ -9,7 +9,7 @@ on:
     branches: [main]
 jobs:
 
-  build:
+  Lint-Check:
 
     runs-on: ubuntu-latest 
     steps:
@@ -17,7 +17,7 @@ jobs:
     - name: Install black
       run: pip install black && echo $GITHUB_WORKSPACE
     - name: Python Lint
-      run: black $GITHUB_WORKSPACE 
+      run: black --check $GITHUB_WORKSPACE 
 
         
         
