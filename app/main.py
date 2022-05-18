@@ -30,9 +30,6 @@ def main():
     Pdf.translate("en")
     newfile.close()
 
-    # print(ts.google(img_text, to_language='en'))
-    # img_text = pytesseract.image_to_string(PIL.Image.open(images), config=my_config)
-
 
 if __name__ == "__main__":
     main()
