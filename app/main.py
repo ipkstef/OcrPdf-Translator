@@ -8,7 +8,7 @@ from pdf2image import convert_from_path
 from utils import pdf
 
 my_config = r"--oem 3 --psm 6"
-
+Pdf = pdf.InputPdf()
 
 # wait 10 seconds for user to enter input or set default
 start = perf_counter()
@@ -24,7 +24,6 @@ while perf_counter() - start < 10:
 
 
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix="txt")
-Pdf = pdf.InputPdf()
 
 
 def main():

@@ -8,4 +8,4 @@ services:
       - ./app:/app/
       
 
-    entrypoint: ['./entrypoint.sh']
+    entrypoint: ['/app/entrypoint.sh']
