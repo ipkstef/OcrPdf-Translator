@@ -16,4 +16,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Docker Compose test
-      run: docker-compose run --rm tesseractv1
+      run: docker-compose run --rm tesseractv1 /app/images/sample.pdf

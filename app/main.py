@@ -1,4 +1,4 @@
-import tempfile
+import tempfile, sys
 from textwrap import wrap
 from time import perf_counter
 
@@ -10,18 +10,8 @@ from utils import pdf
 my_config = r"--oem 3 --psm 6"
 Pdf = pdf.InputPdf()
 
-# wait 10 seconds for user to enter input or set default
-start = perf_counter()
-while perf_counter() - start < 10:
-    user_input = input("Enter PDF file location: ")
-    if user_input:
-        Pdf.load(user_input)
-        break
-    else:
-        print("No input detected, defaulting to sample.pdf")
-        Pdf.load()
-        break
 
+Pdf.load(sys.argv[1])
 
 newfile = tempfile.NamedTemporaryFile(delete=False, suffix="txt")
 
@@ -37,6 +27,8 @@ def main():
             for line in wrapped:
                 # print(line)
                 Pdf.pages.append(line)
+                bytes_text = bytes(line, "utf-8")
+                newfile.write(bytes_text)
 
     print(f"Page Count: {Pdf.page_count()}")
     print(f"pdf text: {Pdf.pages}")

@@ -7,6 +7,14 @@ services:
       - ./tessdata_fast:/usr/share/tessdata
       - ./app:/app/
       
-    entrypoint: ['/entrypoint.sh']
+    entrypoint: ['python','/app/main.py', '/app/images/sample.pdf']
 
-  
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/frontend/
+      - ./frontend/tmpdir:/tmp/
+    ports:
+      - "8080:5000"
+
+    entrypoint: ['python3','/frontend/frontend.py']
