@@ -11,7 +11,7 @@ class InputPdf:
 
     def translate(self, to_language):
         for page in self.pages:
-            print(ts.google(page, to_language=to_language))
+            print(ts.translate_text(page, to_language=to_language, translator='google'))
 
     def page_count(self):
         return len(self.pages)
